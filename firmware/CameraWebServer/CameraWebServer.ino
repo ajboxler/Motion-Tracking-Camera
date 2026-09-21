@@ -20,6 +20,25 @@ void setupLedFlash();
 
 WebServer server(82);
 
+// Motor Control Endpoints //
+void turnLeft() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  server.send(200, "text/plain", "LEFT");
+}
+
+void turnRight() {
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  server.send(200, "text/plain", "RIGHT");
+}
+
+void Stop() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  server.send(200, "text/plain", "STOP");
+}
+
 void setup() {
   Serial.begin(115200);
   Serial.setDebugOutput(true);
@@ -128,30 +147,14 @@ void setup() {
   Serial.println("");
   Serial.println("WiFi connected");
 
-  // Motor Control Endpoints
-server.on("/left", []() {
-  Serial.println("LEFT command received, setting IN1=LOW IN2=HIGH");
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, HIGH);
-  server.send(200, "text/plain", "LEFT");
-});
-
-server.on("/right", []() {
-  digitalWrite(IN1, HIGH);
-  digitalWrite(IN2, LOW);
-  server.send(200, "text/plain", "RIGHT");
-});
-
-server.on("/stop", []() {
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, LOW);
-  server.send(200, "text/plain", "STOP");
-});
+// Registering command routes for handleClient
+  server.on("/left", turnLeft());
+  server.on("/right", turnRight());
+  server.on("/stop", Stop());
 
 // Start motor webserver
 server.begin();
 Serial.println("Motor control server ready!");
-
 
   startCameraServer();
 

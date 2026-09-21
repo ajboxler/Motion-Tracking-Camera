@@ -148,9 +148,9 @@ void setup() {
   Serial.println("WiFi connected");
 
 // Registering command routes for handleClient
-  server.on("/left", turnLeft);
-  server.on("/right", turnRight);
-  server.on("/stop", Stop);
+server.on("/left", turnLeft);
+server.on("/right", turnRight);
+server.on("/stop", Stop);
 
 // Start motor webserver
 server.begin();

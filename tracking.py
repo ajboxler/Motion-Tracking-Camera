@@ -9,7 +9,7 @@ import time
 
 
 # Base address for motor control endpoints 
-ESP32_IP = "http://172.20.10.8"
+ESP32_IP = "http://172.20.10.8:82"
 
 # ESP32 stream address through port 81 
 STREAM_URL = "http://172.20.10.8:81/stream"

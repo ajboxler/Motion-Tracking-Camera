@@ -8,7 +8,7 @@ import threading
 import time
 
 
-# Base address for motor control endpoints 
+# Address for motor control endpoints 
 ESP32_IP = "http://172.20.10.8:82"
 
 # ESP32 stream address through port 81 

@@ -122,7 +122,7 @@ while True:
     x1, y1, x2, y2 = box.xyxy[0]
     x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
 
-    # Draw bounding box #
+    # Draw bounding box 
     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 2)
 
     # Compute object center and offset 

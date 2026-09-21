@@ -50,7 +50,7 @@ void setup() {
   digitalWrite(IN1, LOW); 
   digitalWrite(IN2, LOW);
 
-  camera_config_t config;
+  camera_config_t config = {};
   config.ledc_channel = LEDC_CHANNEL_0;
   config.ledc_timer = LEDC_TIMER_0;
   config.pin_d0 = Y2_GPIO_NUM;

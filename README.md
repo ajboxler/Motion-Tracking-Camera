@@ -96,7 +96,7 @@ Ultralytics provides the YOLO package; additional installation guidance is avail
 Set both addresses to your ESP32-CAM's current IP address:
 
 ```python
-ESP32_IP = "http://<ESP32_IP>"
+ESP32_IP = "http://<ESP32_IP>:82/stream"
 STREAM_URL = "http://<ESP32_IP>:81/stream"
 ```
 

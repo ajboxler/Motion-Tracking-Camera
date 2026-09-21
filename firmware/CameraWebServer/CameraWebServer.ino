@@ -18,7 +18,7 @@ const char *password = "******";
 void startCameraServer();
 void setupLedFlash();
 
-WebServer server(80);
+WebServer server(82);
 
 void setup() {
   Serial.begin(115200);
